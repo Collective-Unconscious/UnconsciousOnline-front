@@ -1,8 +1,13 @@
 import NextAuth from 'next-auth';
 import Credentials from 'next-auth/providers/credentials';
+import Discord from 'next-auth/providers/discord';
 
 export const { handlers, signIn, signOut, auth } = NextAuth({
   providers: [
+    Discord({
+      clientId: process.env.DISCORD_CLIENT_ID,
+      clientSecret: process.env.DISCORD_CLIENT_SECRET,
+    }),
     Credentials({
       name: 'credentials',
       credentials: {
@@ -40,8 +45,29 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
     signIn: '/login',
   },
   callbacks: {
-    async jwt({ token, user }) {
-      if (user) {
+    async jwt({ token, user, account }) {
+      if (account?.provider === 'discord' && account.access_token) {
+        try {
+          const res = await fetch(`${process.env.BACKEND_URL}/auth/discord`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ accessToken: account.access_token }),
+          });
+
+          if (res.ok) {
+            const backendUser = await res.json();
+            token.id = backendUser.id;
+            token.email = backendUser.email;
+            token.name = backendUser.name;
+            token.accessToken = backendUser.accessToken;
+          } else {
+            throw new Error('Backend authentication failed');
+          }
+        } catch (error) {
+          console.error('Discord backend auth failed:', error);
+          throw error;
+        }
+      } else if (user) {
         token.id = user.id;
         token.email = user.email;
         token.name = user.name;
