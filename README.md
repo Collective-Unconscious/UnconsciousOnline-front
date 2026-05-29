@@ -22,18 +22,21 @@ The **`dev`** branch is where contributors will make pull request to. Tagged pus
 ## Running and testing
 
 1. **Clone the repository**
+
 ```bash
 git clone https://github.com/Collective-Unconscious/UnconsciousOnline-front.git
 cd UnconsciousOnline-front
 ```
 
 2. **Install the dependencies**
+
 We use **pnpm** as our package manager. install the dependencies by running:
 ```bash
 pnpm install
 ```
 
 3. **Configure environment variables**
+
 Copy the `.env.example` file to `.env` and fill the variables:
 ```bash
 cp .env.example .env
@@ -41,6 +44,7 @@ cp .env.example .env
 > You will need a **Discord client ID and secret** for the discord OAuth to work.
 
 4. **Run the development server**
+
 To start the project locally, run:
 ```bash
 pnpm dev
