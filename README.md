@@ -8,14 +8,16 @@ This is the frontend for [the Unconscious Online website](https://unconscious.on
 
 Everyone can contribute to this project. You can **create an issue** if you want to report a bug or suggest a feature.
 
-If you want to contributer directly to the code, please create a branch from dev and make a pull request. a maintainer will review it.
+If you want to contributer directly to the code, please create a branch from the `dev` branch and make a pull request. a maintainer will review it.
 
 ## Git workflow
 
-The **master** is the default branch, where production versions will be. Tagged push to this branch will deploy to production and update the website.
-> Only maintainers can push to the master branch.
+The **`master`** is the default branch, where production versions will be. Tagged push to this branch will deploy to production and update the website.
+> Only maintainers can push to the mast`er branch.
 
-The **dev** branch is where contributors will make pull request to. Tagged push to this branch will deploy to the test domain.
+The **`dev`** branch is where contributors will make pull request to. Tagged push to this branch will deploy to the test domain.
+
+**Please DO NOT attempt to commit directly on `master` or `dev`.**
 
 ## Running and testing
 
@@ -45,19 +47,24 @@ pnpm dev
 ```
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
+> The **Unconscious Online backend** needs to be running for the frontend to work. More information on running it [here](https://github.com/Collective-Unconscious/UnconsciousOnline-back/blob/master/README.md).
+
 5. **Code quality and linting**
 To check for linting issues:
 ```bash
 pnpm lint
 ```
 
+To automatically format the code using **Prettier**:
+```bash
+pnpm format
+```
+
 ## General information about the stack
 
 This project is built using:
 - **Next.js 16 (App Router)** - React framework for frontend
-- **NextAuth.js (v5)** - Authentication provider (configured with Discord OAuth and credentials provider)
+- **NextAuth.js v5** - Authentication provider
 - **Tailwind CSS v4** - Styling framework
-- **next-intl** - For internationalization and multi-language support
+- **next-intl** - For internationalization and multi-language support.
 - **Shadcn UI & Base UI** - Components library and styles
-
-
