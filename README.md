@@ -8,7 +8,7 @@ This is the frontend for [the Unconscious Online website](https://unconscious.on
 
 Everyone can contribute to this project. You can **create an issue** if you want to report a bug or suggest a feature.
 
-If you want to contributer directly to the code, please create a branch from the `dev` branch and make a pull request. a maintainer will review it.
+If you want to contributer directly to the code, please create a branch from the `dev` branch and make a pull request. A maintainer will review it.
 
 ## Git workflow
 
@@ -18,6 +18,11 @@ The **`master`** is the default branch, where production versions will be. Tagge
 The **`dev`** branch is where contributors will make pull request to. Tagged push to this branch will deploy to the test domain.
 
 **Please DO NOT attempt to commit directly on `master` or `dev`.**
+
+> Before pushing, remember to format your code with 
+> ```bash
+> pnpm format
+> ```
 
 ## Running and testing
 
