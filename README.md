@@ -59,7 +59,7 @@ To start the project locally, run:
 pnpm dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000/](http://localhost:3000/) with your browser to see the result.
 
 The **Unconscious Online backend** needs to be running for the frontend to work. More information on running it [here](https://github.com/Collective-Unconscious/UnconsciousOnline-back/blob/master/README.md).
 
